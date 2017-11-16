@@ -1,3 +1,29 @@
-<h1>
-  {{title}}
-</h1>
+<div>
+    <div class="container">
+        <div class="text-center">
+            <h1>Paginação Broker</h1>
+
+            <div *ngIf="items">
+                <div *ngFor="let item of items"><strong>{{item?.name}}</strong></div>
+            </div>
+
+            <ul *ngIf="pagina.paginas" class="pagination">
+                <li *ngIf="!(pagina.paginaAtual === 1)">
+                    <a (click)="setPage(1)">Primeira</a>
+                </li>
+                <li *ngIf="!(pagina.paginaAtual === 1)">
+                    <a (click)="setPage(pagina.paginaAtual - 1)">Anterior</a>
+                </li>
+                <li *ngFor="let p of pagina.paginas" [class.active]="pagina.paginaAtual === p">
+                    <a (click)="setPage(p)">{{p}}</a>
+                </li>
+                <li *ngIf="!(pagina.paginaAtual === pagina.totalPaginas)">
+                    <a (click)="setPage(pagina.paginaAtual+ 1)">Próxima</a>
+                </li>
+                <li *ngIf="!(pagina.paginaAtual === pagina.totalPaginas)">
+                    <a (click)="setPage(pagina.totalPaginas)">Última</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
