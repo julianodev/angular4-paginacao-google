@@ -1,7 +1,7 @@
 <div>
     <div class="container">
         <div class="text-center">
-            <h1>Paginação Broker</h1>
+            <h1>Angular 4+ Paginação Utilizando a lógica com google</h1>
 
             <div *ngIf="items">
                 <div *ngFor="let item of items"><strong>{{item?.name}}</strong></div>
@@ -9,19 +9,19 @@
 
             <ul *ngIf="pagina.paginas" class="pagination">
                 <li *ngIf="!(pagina.paginaAtual === 1)">
-                    <a (click)="setPage(1)">Primeira</a>
+                    <a (click)="setPage(1)"><strong>Primeira</strong></a>
                 </li>
                 <li *ngIf="!(pagina.paginaAtual === 1)">
-                    <a (click)="setPage(pagina.paginaAtual - 1)">Anterior</a>
+                    <a (click)="setPage(pagina.paginaAtual - 1)"><strong>Anterior</strong></a>
                 </li>
                 <li *ngFor="let p of pagina.paginas" [class.active]="pagina.paginaAtual === p">
                     <a (click)="setPage(p)">{{p}}</a>
                 </li>
                 <li *ngIf="!(pagina.paginaAtual === pagina.totalPaginas)">
-                    <a (click)="setPage(pagina.paginaAtual+ 1)">Próxima</a>
+                    <a (click)="setPage(pagina.paginaAtual+ 1)"><strong>Próxima</strong></a>
                 </li>
                 <li *ngIf="!(pagina.paginaAtual === pagina.totalPaginas)">
-                    <a (click)="setPage(pagina.totalPaginas)">Última</a>
+                    <a (click)="setPage(pagina.totalPaginas)"><strong>Última</strong></a>
                 </li>
             </ul>
         </div>
